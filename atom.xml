@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Sunny&#39;s notes</title>
+  <subtitle>天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.caohui.tk/"/>
+  <updated>2016-07-18T09:56:53.250Z</updated>
+  <id>http://www.caohui.tk/</id>
+  
+  <author>
+    <name>Cao hui</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>help</title>
+    <link href="http://www.caohui.tk/2016/07/18/help/"/>
+    <id>http://www.caohui.tk/2016/07/18/help/</id>
+    <published>2016-07-18T09:32:34.000Z</published>
+    <updated>2016-07-18T09:56:53.250Z</updated>
+    
+    <content type="html">&lt;p&gt;test&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;test&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://www.caohui.tk/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://www.caohui.tk/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>github绑定自定义域名</title>
+    <link href="http://www.caohui.tk/2016/07/18/coding-me/"/>
+    <id>http://www.caohui.tk/2016/07/18/coding-me/</id>
+    <published>2016-07-18T03:02:36.492Z</published>
+    <updated>2016-07-18T06:14:41.056Z</updated>
+    
+    <content type="html">&lt;p&gt;1、在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如&lt;a href=&quot;http://xxxx.com，注意前面没有http://，也没有www，然后使用hexo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://xxxx.com，注意前面没有http://，也没有www，然后使用hexo&lt;/a&gt; g &amp;amp;&amp;amp; hexo d上传部署。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;2、在域名解析提供商，下面以dnspod为例。&lt;br&gt;（1）先添加一个CNAME，主机记录写@，后面记录值写上你的&lt;a href=&quot;http://xxxx.github.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://xxxx.github.io&lt;/a&gt;&lt;br&gt;（2）再添加一个CNAME，主机记录写www，后面记录值也是&lt;a href=&quot;http://xxxx.github.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://xxxx.github.io&lt;/a&gt;&lt;br&gt;这样别人用www和不用www都能访问你的网站（其实www的方式，会先解析成&lt;a href=&quot;http://xxxx.github.io，然后根据CNAME再变成http://xxx.com，即中间是经过一次转换的）。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://xxxx.github.io，然后根据CNAME再变成http://xxx.com，即中间是经过一次转换的）。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;上面，我们用的是CNAME别名记录，也有人使用A记录，后面的记录值是写github page里面的ip地址，但有时候IP地址会更改，导致最后解析不正确，所以还是推荐用CNAME别名记录要好些，不建议用IP。&lt;br&gt;3、等十分钟左右，刷新浏览器，用你自己域名访问下试试&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1、在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如&lt;a href=&quot;http://xxxx.com，注意前面没有http://，也没有www，然后使用hexo&quot;&gt;http://xxxx.com，注意前面没有http://，也没有www，然后使用hexo&lt;/a&gt; g &amp;amp;&amp;amp; hexo d上传部署。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何 clone git 项目到一个非空目录</title>
+    <link href="http://www.caohui.tk/2016/07/17/git-empty-directory/"/>
+    <id>http://www.caohui.tk/2016/07/17/git-empty-directory/</id>
+    <published>2016-07-17T15:33:16.000Z</published>
+    <updated>2016-07-18T06:12:53.154Z</updated>
+    
+    <content type="html">&lt;p&gt;如果我们往一个非空的目录下 clone git 项目，就会提示错误信息：&lt;/p&gt;
+&lt;p&gt;fatal: destination path ‘.’ already exists and is not an empty directory.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;解决的办法是：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; --no-checkout https://git.oschina.net/NextApp/blog.git tmp&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ mv tmp/.git .   &lt;span class=&quot;comment&quot;&gt;#将 tmp 目录下的 .git 目录移到当前目录&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ rmdir tmp&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ git reset --hard HEAD&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后就可以进行各种正常操作了。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果我们往一个非空的目录下 clone git 项目，就会提示错误信息：&lt;/p&gt;
+&lt;p&gt;fatal: destination path ‘.’ already exists and is not an empty directory.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="git" scheme="http://www.caohui.tk/categories/git/"/>
+    
+    
+      <category term="git" scheme="http://www.caohui.tk/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>黄杰搬家，累...</title>
+    <link href="http://www.caohui.tk/2016/07/17/jiss-move/"/>
+    <id>http://www.caohui.tk/2016/07/17/jiss-move/</id>
+    <published>2016-07-17T13:36:22.000Z</published>
+    <updated>2016-07-18T06:13:17.354Z</updated>
+    
+    <content type="html">&lt;p&gt;黄杰搬家，好多东西   从白石洲搬到了布吉，他是有了自己的房子  爽啊  ，忘记拍他的新房子的照片了，下次补上&lt;br&gt;&lt;img title=&quot;搬家的东西1&quot; alt=&quot;搬家的东西&quot; class=&quot;class1 class2&quot; src=&quot;http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/IMG_20160717_092108.jpg?imageView2/2/w/600&quot;&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;img title=&quot;搬家的东西2&quot; alt=&quot;搬家的东西&quot; class=&quot;class1 class2&quot; src=&quot;http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/IMG_20160717_112225.jpg?imageView2/2/w/600&quot;&gt;&lt;br&gt;上车的东西，拍不全，但是还是蛮多了&lt;br&gt;&lt;img title=&quot;搬家的东西3&quot; alt=&quot;搬家的东西&quot; class=&quot;class1 class2&quot; src=&quot;http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/IMG_20160717_112236.jpg?imageView2/2/w/600&quot;&gt;&lt;br&gt;&lt;img title=&quot;搬家的东西4&quot; alt=&quot;搬家的东西&quot; class=&quot;class1 class2&quot; src=&quot;http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/IMG_20160717_092113.jpg?imageView2/2/w/600&quot;&gt;&lt;br&gt;&lt;img title=&quot;搬家的东西5&quot; alt=&quot;搬家的东西&quot; class=&quot;class1 class2&quot; src=&quot;http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/IMG_20160717_092117.jpg?imageView2/2/w/600&quot;&gt;&lt;br&gt;他家的照片来了&lt;br&gt;&lt;img title=&quot;新家&quot; alt=&quot;新家&quot; class=&quot;class1 class2&quot; src=&quot;http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/jiss.jpg?imageView2/2/w/600&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;黄杰搬家，好多东西   从白石洲搬到了布吉，他是有了自己的房子  爽啊  ，忘记拍他的新房子的照片了，下次补上&lt;br&gt;&lt;img title=&quot;搬家的东西1&quot; alt=&quot;搬家的东西&quot; class=&quot;class1 class2&quot; src=&quot;http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/IMG_20160717_092108.jpg?imageView2/2/w/600&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="日记" scheme="http://www.caohui.tk/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+      <category term="生活" scheme="http://www.caohui.tk/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+</feed>

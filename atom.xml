@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.caohui.tk/"/>
-  <updated>2016-07-18T09:56:53.250Z</updated>
+  <updated>2016-07-18T06:14:41.056Z</updated>
   <id>http://www.caohui.tk/</id>
   
   <author>
@@ -14,30 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>help</title>
-    <link href="http://www.caohui.tk/2016/07/18/help/"/>
-    <id>http://www.caohui.tk/2016/07/18/help/</id>
-    <published>2016-07-18T09:32:34.000Z</published>
-    <updated>2016-07-18T09:56:53.250Z</updated>
-    
-    <content type="html">&lt;p&gt;test&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;test&lt;/p&gt;
-
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://www.caohui.tk/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="http://www.caohui.tk/tags/hexo/"/>
-    
-  </entry>
   
   <entry>
     <title>github绑定自定义域名</title>

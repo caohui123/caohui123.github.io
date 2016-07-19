@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.caohui.tk/"/>
-  <updated>2016-07-18T06:14:41.056Z</updated>
+  <updated>2016-07-19T08:53:08.384Z</updated>
   <id>http://www.caohui.tk/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Symfony2之创建一个简单的web应用</title>
+    <link href="http://www.caohui.tk/2016/07/19/Symfony2%E4%B9%8B%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E5%BA%94%E7%94%A8/"/>
+    <id>http://www.caohui.tk/2016/07/19/Symfony2之创建一个简单的web应用/</id>
+    <published>2016-07-19T08:36:45.000Z</published>
+    <updated>2016-07-19T08:53:08.384Z</updated>
+    
+    <content type="html">&lt;p&gt;Symfony2——创建bundle&lt;/p&gt;
+&lt;p&gt;bundle就像插件或者一个功能齐全的应用，我们在应用层上开发的应用的所有代码，包括：PHP文件、配置文件、图片、css文件、js文件等都会包含在bunde系统中。&lt;/p&gt;
+&lt;p&gt;可以通过两种方法创建bundle，一种是通过命令行创建，一种是通过手动创建相应的文件和文件夹。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;一：通过命令行创建，如下：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ php app/console generate:bundle --namespace=Acme/HelloBundle --format=yml&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;执行以上命令 src/Acme/HelloBundle 被创建，指定使用的配置文件格式yml（还可以使用xml和php），同时自动在 app/AppKernel.php 添加一行代码，使得bundle注册到kernel。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;//app/AppKernel.php&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  public &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;registerBundles&lt;/span&gt;&lt;/span&gt;()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;          &lt;span class=&quot;variable&quot;&gt;$bundles&lt;/span&gt; = array(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;             ...,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;              new Acme\HelloBundle\AcmeHelloBundle(),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;          );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;          &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$bundles&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Symfony2——创建一个简单的web应用（配置文件均已yml为例）&lt;/p&gt;
+&lt;p&gt;step 1：创建路由地址&lt;br&gt;    路由的默认配置文件  app/config/routing.yml ，打开该文件你会看到当你创建bundle的时候，Symfony已经在该文件中添加了 AcmeHelloBundle路由配置文件的入口，该入口会告诉Symfony到哪里加载AcmeHelloBundle的路由配置。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#app/config/routing.yml&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;acme_hello:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    resource: &lt;span class=&quot;string&quot;&gt;&quot;@AcmeHelloBundle/Resources/config/routing.yml&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;:     annotation&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;打开 Resources/config/routing.yml 定义URL对应的执行的控制器。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#src/Acme/HelloBundle/Resources/config/routing.yml&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hello:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    path: /hello/&amp;#123;name&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    defaults: &amp;#123; _controller:AcmeHelloBundle:hello:index &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt; 路由设置包含了两方面，path对应了相应的URL，defaults指向URL执行的controller。占位符{name}是一个通配符，用来匹配URL中，如：/hello/jc 或者 /hello/jack 的 jc 或者 jack ，同时匹配的值作为参数传入到indexAction方法中。&lt;/p&gt;
+&lt;p&gt;step 2：创建controller&lt;/p&gt;
+&lt;p&gt;web应用系统解析相应的URL，交由symfony框架执行相应的controller（AcmeHelloBundle:Hello:index），该controller对应的是Acme\HelloBundle\Controller\Hellotroller类中的indexAction方法。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;//src/Acme/HelloBundle/Controller/HelloController.php&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   namespace Acme\HelloBundle\Controller;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   class HelloController&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;controller其实就是一个PHP方法，该方法由我们去创建，symfony能够执行的方法。&lt;br&gt;    编写indexAction方法，并返回Response对象，最后由symfony框架输出Response对象。（Response类是Symfony框架提供的）&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;//src/Acme/HelloBundle/Controller/HelloController.php&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   namespace Acme\HelloBundle\Controller;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   use Symfony\Component\HttpFoundation\Response;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   class HelloController&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    public &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; indexAction(&lt;span class=&quot;variable&quot;&gt;$name&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;           // replace this example code with whatever you need&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;           &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; new Response(&lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;Hello&#39;&lt;/span&gt;.&lt;span class=&quot;variable&quot;&gt;$name&lt;/span&gt;.&lt;span class=&quot;string&quot;&gt;&#39;!&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  其中indexAction中$name参数是配置文件中 path 里面的占位符{name}，&lt;a href=&quot;http://localhost/app_dev.php/hello/Ryan可以看到相应的输出结果。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost/app_dev.php/hello/Ryan可以看到相应的输出结果。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;step 3：创建输出模板&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Symfony2——创建bundle&lt;/p&gt;
+&lt;p&gt;bundle就像插件或者一个功能齐全的应用，我们在应用层上开发的应用的所有代码，包括：PHP文件、配置文件、图片、css文件、js文件等都会包含在bunde系统中。&lt;/p&gt;
+&lt;p&gt;可以通过两种方法创建bundle，一种是通过命令行创建，一种是通过手动创建相应的文件和文件夹。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="symfony2" scheme="http://www.caohui.tk/categories/symfony2/"/>
+    
+    
+      <category term="style symfony2  blog" scheme="http://www.caohui.tk/tags/style-symfony2-blog/"/>
+    
+  </entry>
   
   <entry>
     <title>github绑定自定义域名</title>

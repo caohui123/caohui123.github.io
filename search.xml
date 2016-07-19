@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[github绑定自定义域名]]></title>
+      <url>http://www.caohui.tk/2016/07/18/coding-me/</url>
+      <content type="html"><![CDATA[<p>1、在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如<a href="http://xxxx.com，注意前面没有http://，也没有www，然后使用hexo" target="_blank" rel="external">http://xxxx.com，注意前面没有http://，也没有www，然后使用hexo</a> g &amp;&amp; hexo d上传部署。<br><a id="more"></a><br>2、在域名解析提供商，下面以dnspod为例。<br>（1）先添加一个CNAME，主机记录写@，后面记录值写上你的<a href="http://xxxx.github.io" target="_blank" rel="external">http://xxxx.github.io</a><br>（2）再添加一个CNAME，主机记录写www，后面记录值也是<a href="http://xxxx.github.io" target="_blank" rel="external">http://xxxx.github.io</a><br>这样别人用www和不用www都能访问你的网站（其实www的方式，会先解析成<a href="http://xxxx.github.io，然后根据CNAME再变成http://xxx.com，即中间是经过一次转换的）。" target="_blank" rel="external">http://xxxx.github.io，然后根据CNAME再变成http://xxx.com，即中间是经过一次转换的）。</a></p>
+<p>上面，我们用的是CNAME别名记录，也有人使用A记录，后面的记录值是写github page里面的ip地址，但有时候IP地址会更改，导致最后解析不正确，所以还是推荐用CNAME别名记录要好些，不建议用IP。<br>3、等十分钟左右，刷新浏览器，用你自己域名访问下试试</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[如何 clone git 项目到一个非空目录]]></title>
+      <url>http://www.caohui.tk/2016/07/17/git-empty-directory/</url>
+      <content type="html"><![CDATA[<p>如果我们往一个非空的目录下 clone git 项目，就会提示错误信息：</p>
+<p>fatal: destination path ‘.’ already exists and is not an empty directory.<br><a id="more"></a><br>解决的办法是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> git</div><div class="line">$ git <span class="built_in">clone</span> --no-checkout https://git.oschina.net/NextApp/blog.git tmp</div><div class="line">$ mv tmp/.git .   <span class="comment">#将 tmp 目录下的 .git 目录移到当前目录</span></div><div class="line">$ rmdir tmp</div><div class="line">$ git reset --hard HEAD</div></pre></td></tr></table></figure>
+<p>然后就可以进行各种正常操作了。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[黄杰搬家，累...]]></title>
+      <url>http://www.caohui.tk/2016/07/17/jiss-move/</url>
+      <content type="html"><![CDATA[<p>黄杰搬家，好多东西   从白石洲搬到了布吉，他是有了自己的房子  爽啊  ，忘记拍他的新房子的照片了，下次补上<br><img title="搬家的东西1" alt="搬家的东西" class="class1 class2" src="http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/IMG_20160717_092108.jpg?imageView2/2/w/600"><br><a id="more"></a><br><img title="搬家的东西2" alt="搬家的东西" class="class1 class2" src="http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/IMG_20160717_112225.jpg?imageView2/2/w/600"><br>上车的东西，拍不全，但是还是蛮多了<br><img title="搬家的东西3" alt="搬家的东西" class="class1 class2" src="http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/IMG_20160717_112236.jpg?imageView2/2/w/600"><br><img title="搬家的东西4" alt="搬家的东西" class="class1 class2" src="http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/IMG_20160717_092113.jpg?imageView2/2/w/600"><br><img title="搬家的东西5" alt="搬家的东西" class="class1 class2" src="http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/IMG_20160717_092117.jpg?imageView2/2/w/600"><br>他家的照片来了<br><img title="新家" alt="新家" class="class1 class2" src="http://7xwgv3.com1.z0.glb.clouddn.com/static/images/jiss_move/jiss.jpg?imageView2/2/w/600"></p>
+]]></content>
+    </entry>
+    
+  
+  
+</search>

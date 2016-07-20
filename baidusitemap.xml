@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://www.caohui.tk/2016/07/19/Symfony2-web-app-develop/</loc>
+    <lastmod>2016-07-19T08:59:46.362Z</lastmod>
+    <data>
+        <display>
+        <title>Symfony2之创建一个简单的web应用</title>
+        <pubTime>2016-07-19T08:36:45.000Z</pubTime>
+        
+        <tag>symfony2</tag>
+         
+        <tag>develop</tag>
+         
+        <tag>php</tag>
+         
+         
+           
+             
+              <breadCrumb title="symfony2" url="http://www.caohui.tk/categories/symfony2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+  <url>
+    <loc>http://www.caohui.tk/2016/07/18/coding-me/</loc>
+    <lastmod>2016-07-18T06:14:41.056Z</lastmod>
+    <data>
+        <display>
+        <title>github绑定自定义域名</title>
+        <pubTime>2016-07-18T03:02:36.492Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.caohui.tk/2016/07/17/jiss-move/</loc>
+    <lastmod>2016-07-18T06:13:17.354Z</lastmod>
+    <data>
+        <display>
+        <title>黄杰搬家，累...</title>
+        <pubTime>2016-07-17T13:36:22.000Z</pubTime>
+        
+        <tag>生活</tag>
+         
+         
+           
+             
+              <breadCrumb title="日记" url="http://www.caohui.tk/categories/%E6%97%A5%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.caohui.tk/2016/07/17/git-empty-directory/</loc>
+    <lastmod>2016-07-18T06:12:53.154Z</lastmod>
+    <data>
+        <display>
+        <title>如何 clone git 项目到一个非空目录</title>
+        <pubTime>2016-07-17T15:33:16.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="git" url="http://www.caohui.tk/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+</urlset>

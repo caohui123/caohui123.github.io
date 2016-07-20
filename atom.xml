@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.caohui.tk/"/>
-  <updated>2016-07-19T08:59:46.362Z</updated>
+  <updated>2016-07-20T08:49:09.261Z</updated>
   <id>http://www.caohui.tk/</id>
   
   <author>
@@ -14,6 +14,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql同时使用order by和limit查询时的一个严重隐患 -- 丢失数据</title>
+    <link href="http://www.caohui.tk/2016/07/20/mysql-order-by-limit-quest/"/>
+    <id>http://www.caohui.tk/2016/07/20/mysql-order-by-limit-quest/</id>
+    <published>2016-07-20T08:13:25.000Z</published>
+    <updated>2016-07-20T08:49:09.261Z</updated>
+    
+    <content type="html">&lt;p&gt;我经常使用order by和limit来做数据分页显示并排序，一直也没发现过什么问题。但这两天缺遇到一个严重的问题，在按时间戳升序排列并用limit分批读取数据时，却发现在某些记录丢失了，表中明明有的记录确死活读取不到。研究了大半天终于发现了问题所在，记录一下以防忘记，也是给大家提个醒。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;strong&gt;问题重现&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;工具和原料&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;数据库：&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ver 14.14 Distrib 5.6.11, for Linux (x86_64) using EditLine wrapper&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;表结构：&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字段&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;类型&lt;/th&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;id&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;int(10)&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;主键&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pay_time&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;int(10)&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;时间戳，有索引&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;flag&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;tinyint(1)&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;类型标识，用于分类筛选&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;数据&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;大概5000条数据， 大部分记录的flag都等于0，pay_time字段时间戳格式都正确&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;需求&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;筛选出flag=0的记录，按pay_time升序依次读取所有数据。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;处理方式&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用limit分批读取数据，如：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;select id, pay_time from order_customer_new where flag=0 order by pay_time asc, id asc limit 250, 10;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;发现问题&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在读取数据的过程中，发现有时间戳相等的记录，分两次读取出来时，可能会丢失一条记录。见下图，id=465的记录就丢失了。&lt;/p&gt;
+&lt;img title=&quot;图1&quot; alt=&quot;图1&quot; class=&quot;class1 class2&quot; src=&quot;http://7xwgv3.com1.z0.glb.clouddn.com/static/images/mysql_bug/1.jpg?imageView2/2/w/600&quot;&gt;
+&lt;img title=&quot;图2&quot; alt=&quot;图2&quot; class=&quot;class1 class2&quot; src=&quot;http://7xwgv3.com1.z0.glb.clouddn.com/static/images/mysql_bug/2.jpg?imageView2/2/w/600&quot;&gt;
+&lt;p&gt;这里写图片描述&lt;/p&gt;
+&lt;p&gt;问题分析与猜测&lt;/p&gt;
+&lt;p&gt;当排序值相等，其先后顺序的不确定的。这里我猜想：当465和466处于limit末尾时466排在前面，而当处于limit开头时，466缺排到后面去了。所以465丢失了，466出现了两次。&lt;br&gt;排序值相等时，其顺序的不确定应该是其结果不可预测。但真正进行排序时应该会采取一定的规则以确定唯一的排序结果，也就是说，即使有相等的排序值，多次排序的结果应该是一样的。从以前的使用经历看，mysql是这么做的。但这次遇到的问题似乎说明mysql并不是这样的。不知道mysql本来就是如此，还是一个bug。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决办法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;既然猜想此问题是因为排序值相等造成顺序不确定引起的，那么就试试增加排序条件让其排序结果是确定的、唯一的。一试果然OK，如下图所示，465出来了。&lt;/p&gt;
+&lt;p&gt;这里写图片描述&lt;br&gt;&lt;img title=&quot;图3&quot; alt=&quot;图3&quot; class=&quot;class1 class2&quot; src=&quot;http://7xwgv3.com1.z0.glb.clouddn.com/static/images/mysql_bug/3.jpg?imageView2/2/w/600&quot;&gt;&lt;br&gt;&lt;code&gt;请求支援&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;我对mysql的底层实现和数据库原理不是很了解，完全不明白mysql为什么会出现这种问题。若哪位朋友能解释一二，不胜感激！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我经常使用order by和limit来做数据分页显示并排序，一直也没发现过什么问题。但这两天缺遇到一个严重的问题，在按时间戳升序排列并用limit分批读取数据时，却发现在某些记录丢失了，表中明明有的记录确死活读取不到。研究了大半天终于发现了问题所在，记录一下以防忘记，也是给大家提个醒。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://www.caohui.tk/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="http://www.caohui.tk/tags/mysql/"/>
+    
+      <category term="bug" scheme="http://www.caohui.tk/tags/bug/"/>
+    
+      <category term="limit" scheme="http://www.caohui.tk/tags/limit/"/>
+    
+      <category term="order by" scheme="http://www.caohui.tk/tags/order-by/"/>
+    
+  </entry>
   
   <entry>
     <title>Symfony2之创建一个简单的web应用</title>

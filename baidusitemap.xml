@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://www.caohui.tk/2016/07/20/mysql-order-by-limit-quest/</loc>
+    <lastmod>2016-07-20T08:49:09.261Z</lastmod>
+    <data>
+        <display>
+        <title>mysql同时使用order by和limit查询时的一个严重隐患 -- 丢失数据</title>
+        <pubTime>2016-07-20T08:13:25.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+        <tag>bug</tag>
+         
+        <tag>limit</tag>
+         
+        <tag>order by</tag>
+         
+         
+           
+             
+              <breadCrumb title="mysql" url="http://www.caohui.tk/categories/mysql/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.caohui.tk/2016/07/19/Symfony2-web-app-develop/</loc>
     <lastmod>2016-07-19T08:59:46.362Z</lastmod>
     <data>

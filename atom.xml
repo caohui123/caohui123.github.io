@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.caohui.tk/"/>
-  <updated>2016-07-22T06:23:04.298Z</updated>
+  <updated>2018-03-12T04:08:13.653Z</updated>
   <id>http://www.caohui.tk/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git 简易的命令行入门教程</title>
+    <link href="http://www.caohui.tk/2018/03/12/git-clone/"/>
+    <id>http://www.caohui.tk/2018/03/12/git-clone/</id>
+    <published>2018-03-12T02:36:53.000Z</published>
+    <updated>2018-03-12T04:08:13.653Z</updated>
+    
+    <content type="html">&lt;p&gt;简易的命令行入门教程:&lt;/p&gt;
+&lt;p&gt;Git 全局设置:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;git config --global user.name &lt;span class=&quot;string&quot;&gt;&quot;caohui&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git config --global user.email &lt;span class=&quot;string&quot;&gt;&quot;firstcaohui@gmail.com&quot;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;创建 git 仓库:&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;mkdir ad_plat&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; ad_plat&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git init&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;touch README.md&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git add README.md&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git commit -m &lt;span class=&quot;string&quot;&gt;&quot;first commit&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git remote add origin https://gitee.com/caohui/ad_plat.git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git push -u origin master&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;已有项目?&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; existing_git_repo&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git remote add origin https://gitee.com/caohui/ad_plat.git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git push -u origin master&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;简易的命令行入门教程:&lt;/p&gt;
+&lt;p&gt;Git 全局设置:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;li
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://www.caohui.tk/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>要嫁就嫁程序猿 --钱多话少死的早</title>

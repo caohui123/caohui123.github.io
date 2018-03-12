@@ -4,6 +4,17 @@
   
     
     <entry>
+      <title><![CDATA[git 简易的命令行入门教程]]></title>
+      <url>http://www.caohui.tk/2018/03/12/git-clone/</url>
+      <content type="html"><![CDATA[<p>简易的命令行入门教程:</p>
+<p>Git 全局设置:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name <span class="string">"caohui"</span></div><div class="line">git config --global user.email <span class="string">"firstcaohui@gmail.com"</span></div></pre></td></tr></table></figure></p>
+<p>创建 git 仓库:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mkdir ad_plat</div><div class="line"><span class="built_in">cd</span> ad_plat</div><div class="line">git init</div><div class="line">touch README.md</div><div class="line">git add README.md</div><div class="line">git commit -m <span class="string">"first commit"</span></div><div class="line">git remote add origin https://gitee.com/caohui/ad_plat.git</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
+<p>已有项目?</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> existing_git_repo</div><div class="line">git remote add origin https://gitee.com/caohui/ad_plat.git</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[要嫁就嫁程序猿 --钱多话少死的早]]></title>
       <url>http://www.caohui.tk/2016/07/22/programmer-joke/</url>
       <content type="html"><![CDATA[<p>一、</p>

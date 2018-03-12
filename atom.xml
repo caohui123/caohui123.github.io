@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.caohui.tk/"/>
-  <updated>2016-07-22T06:23:04.297Z</updated>
+  <updated>2016-07-22T06:23:04.298Z</updated>
   <id>http://www.caohui.tk/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.caohui.tk/2016/07/22/programmer-joke/"/>
     <id>http://www.caohui.tk/2016/07/22/programmer-joke/</id>
     <published>2016-07-22T06:07:27.000Z</published>
-    <updated>2016-07-22T06:23:04.297Z</updated>
+    <updated>2016-07-22T06:23:04.298Z</updated>
     
     <content type="html">&lt;p&gt;一、&lt;/p&gt;
 &lt;p&gt;程序猿问科比：“你为什么这么成功？ ”&lt;br&gt;科比：“你知道洛杉矶凌晨四点是什么样子吗？ ”&lt;br&gt;程序猿：“知道，一般那个时候我还在写代码，怎么了？”&lt;br&gt;科比：“额…….”&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;二、&lt;/p&gt;
@@ -200,7 +200,7 @@
     <title>github绑定自定义域名</title>
     <link href="http://www.caohui.tk/2016/07/18/coding-me/"/>
     <id>http://www.caohui.tk/2016/07/18/coding-me/</id>
-    <published>2016-07-18T03:02:36.492Z</published>
+    <published>2016-07-18T03:02:36.493Z</published>
     <updated>2016-07-18T06:14:41.056Z</updated>
     
     <content type="html">&lt;p&gt;1、在source文件夹中新建一个CNAME文件（无后缀名），然后用文本编辑器打开，在首行添加你的网站域名，如&lt;a href=&quot;http://xxxx.com，注意前面没有http://，也没有www，然后使用hexo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://xxxx.com，注意前面没有http://，也没有www，然后使用hexo&lt;/a&gt; g &amp;amp;&amp;amp; hexo d上传部署。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;2、在域名解析提供商，下面以dnspod为例。&lt;br&gt;（1）先添加一个CNAME，主机记录写@，后面记录值写上你的&lt;a href=&quot;http://xxxx.github.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://xxxx.github.io&lt;/a&gt;&lt;br&gt;（2）再添加一个CNAME，主机记录写www，后面记录值也是&lt;a href=&quot;http://xxxx.github.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://xxxx.github.io&lt;/a&gt;&lt;br&gt;这样别人用www和不用www都能访问你的网站（其实www的方式，会先解析成&lt;a href=&quot;http://xxxx.github.io，然后根据CNAME再变成http://xxx.com，即中间是经过一次转换的）。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://xxxx.github.io，然后根据CNAME再变成http://xxx.com，即中间是经过一次转换的）。&lt;/a&gt;&lt;/p&gt;
@@ -221,7 +221,7 @@
     <link href="http://www.caohui.tk/2016/07/17/git-empty-directory/"/>
     <id>http://www.caohui.tk/2016/07/17/git-empty-directory/</id>
     <published>2016-07-17T15:33:16.000Z</published>
-    <updated>2016-07-18T06:12:53.154Z</updated>
+    <updated>2016-07-18T06:12:53.155Z</updated>
     
     <content type="html">&lt;p&gt;如果我们往一个非空的目录下 clone git 项目，就会提示错误信息：&lt;/p&gt;
 &lt;p&gt;fatal: destination path ‘.’ already exists and is not an empty directory.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;解决的办法是：&lt;/p&gt;
